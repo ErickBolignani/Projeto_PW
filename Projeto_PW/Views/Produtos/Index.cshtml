@@ -1,6 +1,62 @@
-﻿@model List<Projeto_PW.Models.ProdutoModel>
+﻿@model IEnumerable<Projeto_PW.Models.ProdutoModel>
 
-@for (int i = 0; i < Model.Count;  i++)
-{
-    <p>@Model[i].Descricao   -  @Model[i].Codigo </p>
+@{
+    ViewData["Title"] = "Index";
 }
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Cadastrar novo produto</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Código
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Valor R$
+            </th>
+            <th>
+                Ativo
+            </th>
+            <th>
+                Data de vencimento
+            </th>
+            <th>Categoria</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Codigo
+            </td>
+            <td>
+                @item.Descricao
+            </td>
+            <td>
+                @item.Valor
+            </td>
+            <td>
+                @item.Ativo
+            </td>
+            <td>
+                @item.DataVencimento
+            </td>
+            <td>@item.Categoria</td>
+            <td>
+                <a class="btn btn-danger">Editar</a>
+                @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

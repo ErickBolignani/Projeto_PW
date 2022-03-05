@@ -10,7 +10,7 @@ namespace Projeto_PW.Models
         public decimal Valor { get; set; }
         public bool Ativo { get; set; }
         public DateTime DataVencimento { get; set; }
-        public CategoriaModel Categoria { get; set; }
+        public string Categoria { get; set; }
         public List<CategoriaModel> ListaCategoriaDisponiveis { get; set; }
     }
 }

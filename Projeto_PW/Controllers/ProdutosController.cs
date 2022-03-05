@@ -13,7 +13,7 @@ namespace Projeto_PW.Controllers
         public IActionResult Index()
         {
           
-            return View();
+            return View(lsProdutos);
         }
 
         public IActionResult Create()
@@ -36,22 +36,27 @@ namespace Projeto_PW.Controllers
         {
             CategoriaModel categoria1 = new CategoriaModel();
             categoria1.CategoriaId = 10;
-            categoria1.Nome = "Padaria";
+            categoria1.Nome = "Periféricos";
 
             CategoriaModel categoria2 = new CategoriaModel();
             categoria2.CategoriaId = 20;
-            categoria2.Nome = "Açougue";
+            categoria2.Nome = "Telofônia";
+
+            CategoriaModel categoria3 = new CategoriaModel();
+            categoria3.CategoriaId = 30;
+            categoria3.Nome = "Acessórios";
 
             lsCategorias.Add(categoria1);
             lsCategorias.Add(categoria2);
-
+            lsCategorias.Add(categoria3);
             return lsCategorias;
         }
 
         [HttpPost]
         public IActionResult Create(ProdutoModel produto)
         {
-            return View();
+            lsProdutos.Add(produto);
+            return RedirectToAction("Index");
         }
     }
 }

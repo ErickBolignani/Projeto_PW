@@ -1,0 +1,25 @@
+﻿@model Projeto_PW.Models.ProdutoModel
+
+@Model.Descricao - @Model.Codigo - @Model.DataVencimento
+
+
+
+
+
+
+<select class="form-control">
+
+    <option value="0">Selecione uma categoria</option>
+
+
+    @for (int i = 0; i < Model.ListaCategoriaDisponiveis.Count; i++)
+    {
+        <option value="@Model.ListaCategoriaDisponiveis[i].CategoriaId">
+
+            @Model.ListaCategoriaDisponiveis[i].Nome
+        </option>
+
+    }
+
+
+</select>
